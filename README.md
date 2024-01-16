@@ -6,14 +6,21 @@
 
 ### **2. 方法**
 
-**数据预处理：** 我们使用了数据增广技术，通过填充、随机水平翻转和随机裁剪，对图像进行处理。这有助于扩充数据集，增加模型的泛化能力。
 
+**数据集：** 
+
+CIFAR-10是一个更接近普适物体的彩色图像数据集。CIFAR-10 是由Hinton 的学生Alex Krizhevsky 和Ilya Sutskever 整理的一个用于识别普适物体的小型数据集。一共包含 10 个类别的 RGB 彩色图 片：飞机（airplane）、汽车（ automobile ）、鸟类（ bird ）、猫（ cat ）、鹿（ deer ）、狗（ dog ）、蛙类（ frog ）、马（ horse ）、船（ ship ）和卡车（ truck ）。图片的尺寸为 32×32 ，数据集中一共有 50000 张训练圄片和 10000 张测试图片。 CIFAR-10 的图片样例如图所示。
+下面这幅图就是列举了10各类，每一类展示了随机的10张图片：
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/817fd100-3593-4aa8-9ff2-ed742ae29975)
+
+我们使用了数据增广技术，通过填充、随机水平翻转和随机裁剪，对图像进行处理。这有助于扩充数据集，增加模型的泛化能力。
 ```python
 transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))
 ])
 ```
+
 
 **模型结构：** 我们设计了一个包含两个卷积层和一个全连接层的卷积神经网络，用于图像分类任务。让我们逐步介绍模型的结构：
 
@@ -53,10 +60,6 @@ class Net(nn.Module):
 ```
 
 
-
-CIFAR-10是一个更接近普适物体的彩色图像数据集。CIFAR-10 是由Hinton 的学生Alex Krizhevsky 和Ilya Sutskever 整理的一个用于识别普适物体的小型数据集。一共包含 10 个类别的 RGB 彩色图 片：飞机（airplane）、汽车（ automobile ）、鸟类（ bird ）、猫（ cat ）、鹿（ deer ）、狗（ dog ）、蛙类（ frog ）、马（ horse ）、船（ ship ）和卡车（ truck ）。图片的尺寸为 32×32 ，数据集中一共有 50000 张训练圄片和 10000 张测试图片。 CIFAR-10 的图片样例如图所示。
-下面这幅图就是列举了10各类，每一类展示了随机的10张图片：
-![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/817fd100-3593-4aa8-9ff2-ed742ae29975)
 
 
 
