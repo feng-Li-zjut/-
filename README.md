@@ -59,11 +59,22 @@ class Net(nn.Module):
         return x
 ```
 
+### **3. 探究内容**
 
+**探究学习率带来的影响：** 
 
+学习率(Learning rate)作为监督学习以及深度学习中重要的超参，其决定着目标函数能否收敛到局部最小值以及何时收敛到最小值。合适的学习率能够使目标函数在合适的时间内收敛到局部最小值。
+为了让模型更快的收敛并且保证模型的拟合精度，本小组采取的策略是：在靠前的循环种采用较大的学习率让模型更快的收敛，让loss下降，并且在之后采取较小的学习率提高模型的精度。
 
+是在前80轮循环中采用更大的学习率让loss更快的下降，然后在后20轮保持原来的学习率以此保证模型的拟合精度。可以看到随着迭代次数的上升，误差的减小速度加快了，即模型的拟合效率大大增加。然后我们再对学习率进行了进一步的配置，即前30轮学习率为0. 01，中间50轮采用0. 001最后20轮采用0. 0001。可以看到拟合效率进一步提升了。
 
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/5ccb5ca3-69cc-4654-82eb-053c14edf594)
 
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/f641fb2b-df2e-4366-9e81-e840f5e82102)
+
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/b83f67ef-e7c6-4733-85de-10e2139cdb69)
+
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/78b824b5-5eec-4925-b892-c0251106d627)
 
 
 
