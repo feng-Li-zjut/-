@@ -1,7 +1,7 @@
 # -基于简易神经网络的CIFAR10分类即超参数影响的探究
 姓名：李秦峰    学号：22351115
 ### **1. 研究目的**
-本研究的目标是通过 PyTorch 实现一个简易的卷积神经网络模型，并使用该模型对 CIFAR-10 数据集进行图像分类。我们旨在探索学习率、网络架构等超参数对网络分类性能的影响。代码在https://github.com/Toruforx/Data-classification-based-on-pytorch。
+本研究的目标是通过 PyTorch 实现一个简易的卷积神经网络模型，并使用该模型对 CIFAR-10 数据集进行图像分类。我们旨在探索学习率、网络架构等超参数对网络分类性能的影响。代码在(https://github.com/feng-Li-zjut/AI_Security_Homework)。
 
 
 ### **2. 方法**
@@ -14,7 +14,7 @@ CIFAR-10是一个更接近普适物体的彩色图像数据集。CIFAR-10 是由
 ![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/817fd100-3593-4aa8-9ff2-ed742ae29975)
 
 我们使用了数据增广技术，通过填充、随机水平翻转和随机裁剪，对图像进行处理。这有助于扩充数据集，增加模型的泛化能力。
-```python
+```
 transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.5,0.5,0.5),(0.5,0.5,0.5))
