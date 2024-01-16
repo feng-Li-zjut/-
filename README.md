@@ -68,14 +68,22 @@ class Net(nn.Module):
 
 是在前80轮循环中采用更大的学习率让loss更快的下降，然后在后20轮保持原来的学习率以此保证模型的拟合精度。可以看到随着迭代次数的上升，误差的减小速度加快了，即模型的拟合效率大大增加。然后我们再对学习率进行了进一步的配置，即前30轮学习率为0. 01，中间50轮采用0. 001最后20轮采用0. 0001。可以看到拟合效率进一步提升了。
 
-![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/5ccb5ca3-69cc-4654-82eb-053c14edf594)
+固定学习率为0.0001：
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/0eed5604-4694-49c9-9aa5-4e9b39a2fb0f)
 
-![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/f641fb2b-df2e-4366-9e81-e840f5e82102)
+前80轮学习率为0.001，后20轮学习率为0.0001
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/cff8d8c7-eca6-45ea-9e6f-4786a0a85945)
 
-![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/b83f67ef-e7c6-4733-85de-10e2139cdb69)
+前30轮学习率为0.01，中间40轮学习率为0.001，最后30轮学习率为0.0001
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/2c836b10-e271-4cdc-8b60-9ab78d05ac54)
 
-![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/78b824b5-5eec-4925-b892-c0251106d627)
+根据以下设置进行逐层学习率配置：
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/f3d03c98-9ea3-4137-83a5-e4bcd46be209)
 
+![image](https://github.com/feng-Li-zjut/AI_Security_Homework/assets/74243537/93ad3884-89bf-49a9-ae3e-37fe0f4fe5e6)
+
+
+**总结：**：
 学习率是机器学习和深度学习中非常关键的一个超参数，它对模型的训练效果和准确率有重要影响。学习率的设置需要在两个极端之间找到平衡：
 
 **过高的学习率**：如果学习率设置得过高，那么在优化过程中，模型的参数更新可能会“跳过”最佳解，导致训练过程不稳定，甚至发散。这意味着模型可能无法收敛到最优解，从而影响最终的准确率。
