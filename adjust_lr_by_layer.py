@@ -59,7 +59,7 @@ class Net(nn.Module):                                                           
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 net = Net().to(device)
 criterion = nn.CrossEntropyLoss()            # 采用交叉熵损失函数
-lr = 0.1
+lr = 0.00001
 
 conv1_params = list(map(id, net.conv1.parameters()))
 conv2_params = list(map(id, net.conv2.parameters()))
@@ -67,8 +67,8 @@ conv3_params = list(map(id, net.conv3.parameters()))
 base_params = filter(lambda p: id(p) not in conv1_params + conv2_params + conv3_params, net.parameters())
 params = [{'params': base_params},
           {'params': net.conv1.parameters(), 'lr': lr * 0.001},
-          {'params': net.conv2.parameters(), 'lr': lr * 0.1},
-          {'params': net.conv3.parameters(), 'lr': lr * 0.1}]
+          {'params': net.conv2.parameters(), 'lr': lr * 0.0001},
+          {'params': net.conv3.parameters(), 'lr': lr * 0.00001}]
 optimizer = torch.optim.SGD(params, lr=lr, momentum=0.9)
 
 EPOCHS = 100                                                 # 迭代次数为200次
